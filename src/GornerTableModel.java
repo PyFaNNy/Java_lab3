@@ -41,14 +41,14 @@ public class GornerTableModel extends AbstractTableModel {
         switch (col) {
             case 0:
                 return x;
-            case 1: {
+            case 1: { //прямой
                 result[0] = 0.0;
                 for (int i = 0; i < coefficients.length; i++) {
                     result[0] += Math.pow(x, coefficients.length - 1 - i) * coefficients[i];
                 }
                 return result[0];
             }
-            case 2: {
+            case 2: { //Обратный
                 result[1] = 0.0;
                 int p = coefficients.length - 1;
                 for (int i = 0; i < coefficients.length; i++) {
@@ -56,7 +56,7 @@ public class GornerTableModel extends AbstractTableModel {
                 }
                 return result[1];
             }
-            default:
+            default: //разница
                 return result[2] = result[1] - result[0];
         }
     }
